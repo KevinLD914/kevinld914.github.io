@@ -1,10 +1,31 @@
+
+@media (min-width: 600px) {
+  #Spotfy{
+    position: relative;z-index: 2;
+    padding-top: 10%;
+  }
+  .background {
+    z-index: -1;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  html,
+  body {
+    background-image:url('../Images/background.jfif');
+    margin: 0;
+    padding: 0;
+  }
+}
+
 html,
 body {
-  background-image:url('../Images/background.jfif');
+  
   margin: 0;
   padding: 0;
 }
-
 
 #Spotfy{
   position: relative;z-index: 2;
