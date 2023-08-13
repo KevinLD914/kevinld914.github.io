@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Armas</title>
+    <link rel="stylesheet" href="Wstyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+
+</head>
+<body>
+    <canvas id="weaponCanvas"></canvas>
+    <div id="controls">
+        <h2>Configuración</h2>
+        <label for="damageMultiplier">Multiplicador de Daño:</label>
+        <input type="range" id="damageMultiplier" min="0.5" max="2.0" step="0.1" value="1.0">
+        <p><span id="damageMultiplierValue">1.0</span>x</p>
+    </div>
+    <div id="weaponInfo">
+        <h2>Estadísticas del Arma</h2>
+        <p id="weaponName"></p>
+        <p id="weaponDescription"></p>
+        <p id="weaponRarity"></p>
+        <p id="weaponDamage"></p>
+        <p id="weaponClass"></p>
+        <button id="downloadBtn" onclick="downloadScript()">Descargar Script para Unity</button>
+    </div>
+    <button id="generateBtn">Generar Arma</button>
+    <footer id="footer"></footer>
+    <script src="generator.js"></script>
+</body>
+</html>

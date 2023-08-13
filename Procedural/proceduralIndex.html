@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Armas Pixel Art</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #222;
+        }
+        canvas {
+            border: 2px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="weaponCanvas" width="100" height="150"></canvas>
+    <button id="generateBtn">Generar Arma</button>
+
+    <script>
+        const canvas = document.getElementById('weaponCanvas');
+        const ctx = canvas.getContext('2d');
+        const generateButton = document.getElementById('generateBtn');
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+
+        const backgroundColor = '#222';
+        const weaponColor = '#c8c8c8';
+
+        generateButton.addEventListener('click', generateRandomWeapon);
+
+        function clearCanvas() {
+            ctx.fillStyle = backgroundColor;
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+        }
+
+        function drawSword() {
+            ctx.fillStyle = weaponColor;
+            // Dibujar la hoja
+            ctx.beginPath();
+            ctx.moveTo(20, 100);
+            ctx.lineTo(50, 50);
+            ctx.lineTo(80, 100);
+            ctx.closePath();
+            ctx.fill();
+
+            // Dibujar el mango
+            ctx.fillRect(45, 100, 10, 40);
+        }
+
+        function drawWand() {
+            ctx.fillStyle = weaponColor;
+            // Dibujar el cuerpo
+            ctx.fillRect(45, 80, 10, 40);
+            // Dibujar la punta
+            ctx.beginPath();
+            ctx.moveTo(45, 80);
+            ctx.lineTo(60, 50);
+            ctx.lineTo(55, 80);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawBow() {
+            ctx.fillStyle = weaponColor;
+            // Dibujar el arco
+            ctx.beginPath();
+            ctx.moveTo(20, 120);
+            ctx.quadraticCurveTo(50, 80, 80, 120);
+            ctx.lineTo(50, 110);
+            ctx.closePath();
+            ctx.fill();
+
+            // Dibujar la cuerda
+            ctx.fillRect(45, 100, 10, 10);
+        }
+
+        function generateRandomWeapon() {
+            clearCanvas();
+            const randomWeaponIndex = Math.floor(Math.random() * 3);
+            if (randomWeaponIndex === 0) {
+                drawSword();
+            } else if (randomWeaponIndex === 1) {
+                drawWand();
+            } else {
+                drawBow();
+            }
+        }
+
+        generateRandomWeapon();
+    </script>
+</body>
+</html>
